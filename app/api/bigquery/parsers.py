@@ -12,11 +12,11 @@ pagination_arguments.add_argument('per_page', type=int, required=False, choices=
 
 
 query_url_parser = reqparse.RequestParser()
-query_url_parser.add_argument('ids1', help="""A comma delimited list of Entrez gene ids to select.\n
+query_url_parser.add_argument('ids1', required=True, help="""A comma delimited list of Entrez gene ids to select.\n
 **Default**: all genes.\n
 **Example**:"5111,6996,57697,6815,889,7112,2176,1019,5888,5706"
 """)
-query_url_parser.add_argument( 'ids2', help="""Entrez gene ids to select.
+query_url_parser.add_argument( 'ids2', required=True, help="""Entrez gene ids to select.
 If not given, the query selects any gene related to a gene in ids 1.
 If given, the query only selects relations that contain a gene in ids1 and a gene in ids2.\n
 **Default**: all genes.\n
